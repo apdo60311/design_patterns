@@ -127,4 +127,13 @@ fun main(args: Array<String>) {
 //
 //    taxHolder.accept(taxCollectorA)
 
+//    val mediator = ConcreteMediator()
+//
+//    val colleague1 = ConcreteColleague(mediator, "Colleague 1")
+//    val colleague2 = ConcreteColleague(mediator, "Colleague 2")
+//    val colleague3 = ConcreteColleague(mediator, "Colleague 3")
+//
+//    colleague1.sendMessage("Hello, everyone!")
+//    colleague2.sendMessage("Hi there!")
+
 }

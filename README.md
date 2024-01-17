@@ -7,17 +7,13 @@
 #### GOF stands for gang of four
 #### Gang of four is four authors Erich Gamma, Richard Helm, Ralph Johnson and John Vlissides published a book titled Design Patterns - Elements of Reusable Object-Oriented Software which initiated the concept of Design Pattern in Software development.
 
-## Types of Design Patterns
-<ol>
-    <li> <a href="#creational"> Creational Patterns </a>
-    </li>
-    <li> <a href="#structural"> Structural Patterns <a/>
-    </li>
-    <li>  <a href="#Behavioral"> Behavioral Patterns <a/>
-    </li>
-    <li>J2EE Patterns    
-    </li>
-</ol>
+## Types of Design Patterns 
+1. [Creational Patterns](#p-idcreational-creational-patterns-p)  
+2. [Structural Patterns](#p-idstructural-structural-patterns-p)
+3. [Behavioral Patterns](#p-idbehavioral-behavioral-patterns-p) 
+4. [J2EE Patterns](#p-idj2ee-j2ee-patterns-p) 
+    
+    
 
 <img src="images/types_of_patterns.webp" alt="design patterns">
 
@@ -45,7 +41,7 @@ is a creational design pattern that lets you construct complex objects step by s
 
 <img src="images/builder-pattern.webp" alt="abstract factory pattern">
 
-<b>Director: </b> <i>notifies the builder whenever a part of the product should be built", which can be perfectly done by the client </i>
+**Director:**  _notifies the builder whenever a part of the product should be built, which can be perfectly done by the client_ 
 
 
 ## <p id="structural"> Structural Patterns </p>
@@ -53,7 +49,7 @@ is a creational design pattern that lets you construct complex objects step by s
 ### Proxy Pattern
 a structural design pattern that lets you provide a substitute or placeholder for another object.
 
-<b> Intent: </b>When we want to control access to an object.
+**Intent:** When we want to control access to an object.
 
 <img src="images/proxy.png" alt="abstract factory pattern">
 
@@ -98,35 +94,19 @@ a behavioral design pattern that allows encapsulating a request or an operation 
 
 is a behavioral design pattern that lets you save and restore the previous state of an object without revealing the details of its implementation.
 
-<ol>
-<li>
-<B> Originator: </B> The Originator class can produce snapshots of its own state, as well as restore its state from snapshots when needed. [Player class]
-</li>
-<li>
-<B> Memento: </B> The Memento is a value object that acts as a snapshot of the originator’s state. It’s a common practice to make the memento immutable and pass it the data only once, via the constructor [PlayerMemento class]
-</li>
-<li>
-<B> CareTaker: </B> The Caretaker knows not only “when” and “why” to capture the originator’s state, but also when the state should be restored.<Br>A caretaker can keep track of the originator’s history by storing a stack of mementos. When the originator has to travel back in history, the caretaker fetches the topmost memento from the stack and passes it to the originator’s restoration method.
-</li>
+1. **Originator:**  The Originator class can produce snapshots of its own state, as well as restore its state from snapshots when needed. [Player class]
+2. **Memento:**  The Memento is a value object that acts as a snapshot of the originator’s state. It’s a common practice to make the memento immutable and pass it the data only once, via the constructor [PlayerMemento class]
+3. **CareTaker:**  The Caretaker knows not only “when” and “why” to capture the originator’s state, but also when the state should be restored.<Br>A caretaker can keep track of the originator’s history by storing a stack of mementos. When the originator has to travel back in history, the caretaker fetches the topmost memento from the stack and passes it to the originator’s restoration method.
 
-</ol>
 
 ### State Pattern
 
 The State Design Pattern is a behavioral design pattern that allows an object to alter its behavior when its internal state changes. This pattern is useful when an object needs to change its behavior based on internal state changes without directly changing its class.
 
-<ul>
-    <li>
-<B> Context: </B> It's the class that contains the state and delegates state-specific requests to the state classes. The context object maintains a reference to the current state object.
-</li>
-<li>
-<B> State: </B> It's an interface or an abstract class that defines a set of methods that encapsulate the behavior associated with a particular state of the context.
-</li>
-<li>
-<B> Concrete States: </B>These are the classes that implement the State interface. Each concrete state provides its own implementation of the behavior associated with the context's state.
-</li>
 
-</ul>
+* **Context**: It's the class that contains the state and delegates state-specific requests to the state classes. The context object maintains a reference to the current state object.
+* **State**: It's an interface or an abstract class that defines a set of methods that encapsulate the behavior associated with a particular state of the context.
+* **Concrete** States: These are the classes that implement the State interface. Each concrete state provides its own implementation of the behavior associated with the context's state.
 
 ### Strategy Pattern
 
@@ -145,3 +125,54 @@ is a behavioral design pattern that allows adding new behaviors to existing clas
 3. **Element Interface:** Defines an accept method that takes a visitor as an argument.
 4. **Concrete Element:** Implements the Element interface and provides the accept method implementation.
 5. **Object Structure:** A collection or structure of elements that can accept a visitor.
+
+### Mediator Pattern
+
+is a behavioral design pattern that defines an object that centralizes communication between various components or classes without them having direct references to each other. It promotes loose coupling by preventing classes from directly communicating with each other, instead, they communicate through a mediator.
+
+**Mediator pattern components:**
+
+1. **Mediator** is the interface that declares the sendMessage method for communication between colleagues.
+2. **Colleague** is another interface that declares methods for sending and receiving messages.
+3. **ConcreteMediator** is a concrete implementation of the mediator interface that maintains a list of colleagues and facilitates communication between them.
+4. **ConcreteColleague** is a concrete implementation of the colleague interface. Each colleague registers with the mediator, and when a colleague sends a message, the mediator relays it to the other colleagues.
+
+### Template Pattern
+
+s a behavioral design pattern that defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure.
+
+**Components:**
+1. **Abstract class:(super class)** defines the skeleton of an algorithm
+2. **subclasses:** overrides algorithm methods 
+
+_abstract class may contain **Template Method** Which execute algorithm's steps_ 
+
+<img src="images/template.png" alt="abstract factory pattern">
+
+## <p id="j2ee"> J2EE Patterns </p>
+
+* **J2EE** stands for **J**ava **2** platform **E**nterprise **E**dition 
+* Also known as Java Enterprise Edition **(JEE)**
+* J2EE design patterns are built for the developing the Enterprise Web-based Applications.
+
+**Examples**
+1. DTO (Data Transfer Object) Pattern:
+   * **Purpose:** Transfers data between systems, with no business logic.
+   * **Example:** Using a DTO to transfer data between a web tier and an EJB tier in a multi-tiered J2EE application.
+2. MVC (Model View Controller) Pattern:
+   * **Purpose:** Separates an application into three main components: Model (business logic and data), View (user interface), and Controller (handles user input and updates the model).
+   * **Example:** Implementing MVC in a J2EE web application, where Servlets or controllers manage the flow, JSPs handle the presentation, and EJBs or POJOs represent the model.
+     Session Facade Pattern:
+3. Session Facade
+   * **Purpose:** Provides a simplified interface to a set of interfaces in a subsystem.
+   * **Example:** A session facade is often used in EJBs to provide a high-level, coarse-grained interface to a set of fine-grained interfaces.
+
+## Sources
+* [Refactoring Guru](https://refactoring.guru/design-patterns)
+* [TutorialsPoint](https://www.tutorialspoint.com/design_pattern/index.htm)
+* [Java design patterns](https://java-design-patterns.com/patterns/)
+
+## Books
+* [Design Patterns: Elements of Reusable Object-Oriented Software](https://a.co/d/gJpPhQ5)
+* [Head First Design Patterns: Building Extensible and Maintainable Object-Oriented Software](https://a.co/d/afJ9HJO)
+
